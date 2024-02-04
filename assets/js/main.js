@@ -23,10 +23,6 @@ function convertPokemonToLi(pokemon) {
 }
 
 pokeapi.getPokemons().then((pokemons) => {
-	const listPokemon = [];
-	for (let i = 0; i < pokemons.length; i++) {
-		listPokemon.push(convertPokemonToLi(pokemons[i]));
-	}
-
-	pokemonOl.innerHTML += listPokemon;
+	const newList = pokemons.map(convertPokemonToLi).join('');
+	pokemonOl.innerHTML += newList;
 });
