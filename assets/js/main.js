@@ -1,10 +1,10 @@
-import { pokeapi } from './poke-api.js';
+// import { pokeapi } from './poke-api.js';
 const pokemonOl = document.querySelector('.pokemons');
 
 function convertPokemonToLi(pokemon) {
 	return `
 		<li class="pokemon">
-			<span class="number">#001</span>
+			<span class="number">${pokemon.order}</span>
 			<span class="name">${pokemon.name}</span>
 
 			<div class="detail">
@@ -23,6 +23,5 @@ function convertPokemonToLi(pokemon) {
 }
 
 pokeapi.getPokemons().then((pokemons) => {
-	const newList = pokemons.map(convertPokemonToLi).join('');
-	pokemonOl.innerHTML += newList;
+	pokemonOl.innerHTML += pokemons.map(convertPokemonToLi).join('');
 });
