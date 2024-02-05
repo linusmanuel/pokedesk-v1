@@ -125,6 +125,21 @@ body {
   width: 100%;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.pagination input[type='submit']{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #678fee;
+  border: none;
+  color: #fff;
+}
+
 @media screen and (min-width: 992px) {
   .content {
     max-width: 992px;
