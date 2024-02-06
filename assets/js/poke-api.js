@@ -16,16 +16,12 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
 }
 
 pokeapi.getPokemonDetail = (pokemon) => {
-	return fetch(pokemon.url, {
-		headers: {
-			'Cache-Control': `public, max-age=3600`,
-		},
-	})
+	return fetch(pokemon.url)
 		.then((response) => response.json())
 		.then(convertPokeApiDetailToPokemon);
 };
 
-pokeapi.getPokemons = (offset = 0, limit = 6) => {
+pokeapi.getPokemons = (offset, limit) => {
 	const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
 
 	return fetch(url)
